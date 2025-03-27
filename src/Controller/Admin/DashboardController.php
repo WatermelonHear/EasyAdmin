@@ -15,8 +15,9 @@ class DashboardController extends AbstractDashboardController
 {
     public function index(): Response
     {
-        return parent::index();
-
+        return $this->render('dashboard.html.twig', [
+            'title' => 'Panel de Administracion',
+        ]);
     }
 
     public function configureDashboard(): Dashboard
@@ -27,11 +28,10 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        return [
-            MenuItem::linkToDashboard('Dashboard','fa fa-home'),
-            MenuItem::linkToCrud('Categorias', 'fa fa-tags',Category::class),
-            MenuItem::linkToCrud('Productos', 'fa fa-tags',Product::class),
-        ];
+       yield MenuItem::linkToDashboard('Menu Principal','fa fa-home');
+       yield MenuItem::linkToCrud('Categorias', 'fa fa-box',Category::class);
+       yield MenuItem::linkToCrud('Productos', 'fa fa-tags',Product::class);
+        
 
     }
 }

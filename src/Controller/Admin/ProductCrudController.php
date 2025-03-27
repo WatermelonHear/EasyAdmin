@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Product;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -41,9 +43,11 @@ class ProductCrudController extends AbstractCrudController
             AssociationField::new('categories','Categorías')
                 ->setFormTypeOptions([
                     'choice_label' => 'name',
+                    'multiple' => true,
                 ])
                 ->setHelp('Seleccione una o más categorías para este producto.'),
         ];
     }
-    
+
+  
 }
