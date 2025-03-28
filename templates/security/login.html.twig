@@ -10,7 +10,7 @@
 
     <form action="{{ path('app_login') }}" method="post">
         <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" required>
+        <input type="email" id="username" name="email" value="{{ last_username }}" required>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="_password" required>

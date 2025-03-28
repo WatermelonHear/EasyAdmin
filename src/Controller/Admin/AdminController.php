@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\User;
 use App\Entity\Category;
 use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
@@ -15,6 +16,7 @@ class AdminController extends AbstractDashboardController
 {
     public function index(): Response
     {
+
         return $this->render('dashboard.html.twig', [
             'title' => 'Panel de Administracion',
         ]);
@@ -31,6 +33,7 @@ class AdminController extends AbstractDashboardController
        yield MenuItem::linkToDashboard('Menu Principal','fa fa-home');
        yield MenuItem::linkToCrud('Categorias', 'fa fa-box',Category::class);
        yield MenuItem::linkToCrud('Productos', 'fa fa-tags',Product::class);
+       yield MenuItem::linkToCrud('Usuarios', 'fa fa-user',User::class);
         
 
     }
